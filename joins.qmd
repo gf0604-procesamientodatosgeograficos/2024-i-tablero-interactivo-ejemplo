@@ -70,7 +70,7 @@ print(st_drop_geometry(registros), n = Inf, na.print = NULL)
 especies <-
   read_csv("especies.csv")
 
-# Despliegue de los datos (solo para )
+# Despliegue de los datos
 print(especies, n = Inf, na.print = NULL)
 ```
 
@@ -119,7 +119,7 @@ registros_union_especies <-
     by = "species"
   )
 
-# Despliegue de los datos
+# Despliegue del resultado
 print(
   st_drop_geometry(registros_union_especies), 
   n = Inf, 
@@ -144,7 +144,7 @@ registros_union_especies_provincias <-
     join = st_within
   )
 
-# Despliegue de los datos
+# Despliegue del resultado
 print(
   st_drop_geometry(registros_union_especies_provincias),
   n = Inf,
