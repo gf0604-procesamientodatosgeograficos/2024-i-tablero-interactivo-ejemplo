@@ -1,0 +1,154 @@
+---
+title: "Joins (uniones de conjuntos de datos)"
+format: html
+lang: es
+toc: true
+toc-expand: true
+---
+
+# Introducción
+Em este documento se ejemplifican los conceptos de *joins* (uniones de datos):
+
+- [*Joins* de atributos](https://r.geocompx.org/attr#vector-attribute-joining)
+- [*Joins* espaciales](https://r.geocompx.org/spatial-operations#spatial-joining)
+
+# Carga de paquetes
+
+```{r}
+#| label: carga-paquetes
+#| message: false
+#| warning: false
+
+
+library(tidyverse)
+library(sf)
+
+# Ancho de la consola
+options(width = 100)
+```
+
+
+# Carga de datos
+
+## Registros de presencia
+
+```{r}
+#| label: carga-registros-presencia
+#| code-fold: true
+#| code-summary: "Código"
+#| message: false
+#| warning: false
+
+
+# Carga de los datos
+registros <-
+  st_read(
+    "registros-presencia.csv",
+    options = c(
+      "X_POSSIBLE_NAMES=decimalLongitude",
+      "Y_POSSIBLE_NAMES=decimalLatitude"
+    ),
+    quiet = TRUE
+  )
+st_crs(registros) <- 4326
+
+# Despliegue de los datos
+print(st_drop_geometry(registros), n = Inf, na.print = NULL)
+```
+
+## Especies
+
+```{r}
+#| label: carga-especies
+#| code-fold: true
+#| code-summary: "Código"
+#| message: false
+#| warning: false
+
+
+# Carga de los datos
+especies <-
+  read_csv("especies.csv")
+
+# Despliegue de los datos (solo para )
+print(especies, n = Inf, na.print = NULL)
+```
+
+## Provincias
+
+```{r}
+#| label: carga-provincias
+#| code-fold: true
+#| code-summary: "Código"
+#| message: false
+#| warning: false
+
+
+# Carga de los datos
+provincias <-
+  st_read(
+    "provincias.gpkg",
+    quiet = TRUE
+  )
+
+# Despliegue de los datos
+print(
+  st_drop_geometry(select(provincias, cod_provin, provincia)), 
+  n = Inf, 
+  na.print = NULL
+)
+```
+
+# *Joins*
+
+
+## *Join* de atributos: Registros de presencia + Especies
+Como resultado de este *join*, la columna `iucnRedListCategory` se une al conjunto de datos de registros de presencia.
+
+```{r}
+#| label: union-registros-especies
+#| code-fold: true
+#| code-summary: "Código"
+
+
+# Unión de los datos
+registros_union_especies <-
+  left_join(
+    x = registros,
+    y = especies,
+    by = "species"
+  )
+
+# Despliegue de los datos
+print(
+  st_drop_geometry(registros_union_especies), 
+  n = Inf, 
+  na.print = NULL
+)
+```
+
+## *Join* espacial: Registros de presencia + Especies + Provincias
+Como resultado de este *join*, la columna `provincia` se une al conjunto de datos de registros de presencia (junto con la columna `iucnRedListCategory`, agregada en el paso anterior).
+
+```{r}
+#| label: union-registros-especies-provincias
+#| code-fold: true
+#| code-summary: "Código"
+
+
+# Unión de los datos
+registros_union_especies_provincias <-
+  st_join(
+    x = registros_union_especies,
+    y = dplyr::select(provincias, provincia),
+    join = st_within
+  )
+
+# Despliegue de los datos
+print(
+  st_drop_geometry(registros_union_especies_provincias),
+  n = Inf,
+  na.print = NULL
+)
+```
+
