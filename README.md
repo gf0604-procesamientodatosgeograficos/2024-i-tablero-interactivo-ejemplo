@@ -8,4 +8,4 @@
 - Ejecutable en shinyapps.io: [https://mfvargas.shinyapps.io/tablero-interactivo-ejemplo/](https://mfvargas.shinyapps.io/tablero-interactivo-ejemplo/)
 
 Además, se proporciona un documento para ejemplificar el concepto de *joins* (uniones) de datos:  
-[*Joins* (uniones de conjuntos de datos)](joins.html)
+[*Joins* (uniones de conjuntos de datos)](https://gf0604-procesamientodatosgeograficos.github.io/2024-i-tablero-interactivo-ejemplo/joins.html)
