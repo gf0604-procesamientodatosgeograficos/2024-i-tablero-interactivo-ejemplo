@@ -1,6 +1,9 @@
 ---
 title: "Joins (uniones de conjuntos de datos)"
-format: html
+format: 
+  html:
+    grid: 
+      body-width: 900px
 lang: es
 toc: true
 toc-expand: true
