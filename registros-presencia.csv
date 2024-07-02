@@ -1,21 +1,21 @@
-species	decimalLongitude	decimalLatitude
-Lapa verde	-84.008498	10.507526
-Mono araña	-84.465348	10.612829
-Mono araña	-84.072331	10.693806
-Mono araña	-83.552657	10.431902
-Lapa verde	-83.53028	10.4265
-Mono carablanca	-85.770595	10.210327
-Mono carablanca	-85.118493	9.696333
-Lapa roja	-82.678953	9.596146
-Mono tití	-84.104343	9.406523
-Mono tití	-83.590397	9.056803
-Mono carablanca	-84.013752	10.545331
-Mono congo	-83.892824	10.634425
-Mono congo	-85.757347	10.499425
-Perro	-84.166037	10.026464
-Perro	-83.294802	9.149011
-Perro	-84.427651	10.112731
-Gato	-84.376304	9.979874
-Jaguar	-84.044684	10.194108
-Jaguar	-83.10474	9.552813
-Tigrillo	-83.629679	9.948021
+species	sex	age	decimalLongitude	decimalLatitude
+Lapa verde	Macho	30	-84.008498	10.507526
+Mono araña	Macho	3	-84.465348	10.612829
+Mono araña	Hembra	10	-84.072331	10.693806
+Mono araña	Macho	5	-83.552657	10.431902
+Lapa verde	Desconocido	1	-83.53028	10.4265
+Mono carablanca	Hembra	6	-85.770595	10.210327
+Mono carablanca	Macho	12	-85.118493	9.696333
+Lapa roja	Hembra	20	-82.678953	9.596146
+Mono tití	Hembra	2	-84.104343	9.406523
+Mono tití	Hembra	6	-83.590397	9.056803
+Mono carablanca	Hembra	10	-84.013752	10.545331
+Mono congo	Desconocido	10	-83.892824	10.634425
+Mono congo	Hembra	15	-85.757347	10.499425
+Perro	Hembra	2	-84.166037	10.026464
+Perro	Macho	4	-83.294802	9.149011
+Perro	Hembra	8	-84.427651	10.112731
+Gato	Macho	15	-84.376304	9.979874
+Jaguar	Hembra	7	-84.044684	10.194108
+Jaguar	Macho	8	-83.10474	9.552813
+Tigrillo	Hembra	4	-83.629679	9.948021
